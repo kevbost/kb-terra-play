@@ -12,14 +12,15 @@ terra.registerCreature({
   type: 'plant',
   color: [0, 120, 0],
   size: 10,
+  // character: '0',
   initialEnergy: 5,
   maxEnergy: 20,
   wait: function() {
     // photosynthesis :)
-    this.energy += 4;
+    this.energy += 5;
   },
   move: false,
-  reproduceLv: 0.65
+  reproduceLv: 0.4
 });
 
 // terra.registerCreature({
@@ -34,11 +35,13 @@ terra.registerCreature({
 
 terra.registerCreature({
   type: 'bully',
-  color: [241, 196, 15],
+  color: [241, 106, 15],
+  // character: 'X',
   initialEnergy: 50,
   // reproduceLv: 0.6,
   size: 100,
-  sustainability: 0
+  sustainability: 0,
+  reproduceLv: 0.9
 });
 
 // bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 5]]);
