@@ -4,10 +4,37 @@ var h = Math.min(document.documentElement.clientHeight, window.innerHeight || 0)
 console.log(w)
 console.log(h)
 
-var cellSize = 30
+var cellSize = 20;
+var btnHeight = ($('.toggler').outerHeight()) / 10;
+console.log(btnHeight)
 
-var bbTerrarium = new terra.Terrarium((w / cellSize), ((h / cellSize)-1), 'play', cellSize);
+var mainCanvas = new terra.Terrarium((w / cellSize), ((h / cellSize) - 0.5), 'playClass', cellSize);
 
+var btn = 1;
+var anywhere = $('html')
+var toggler = $('.toggler')
+
+anywhere.click(function(){
+  if (btn === 1) {
+    btn--
+    mainCanvas.animate();
+    toggler.addClass('hidden')
+    // toggler.html('stop');
+  } else 
+
+  if (btn === 0) {
+    btn++
+    mainCanvas.stop();
+    // toggler.html('click anywhere to start simulation');
+    // toggler.css({ 'top':'50%', 'right':'50%' });
+  }
+});
+
+
+
+
+//Large Bacteria
+////////////////
 terra.registerCreature({
   type: 'plant',
   color: [0, 120, 0],
@@ -23,19 +50,9 @@ terra.registerCreature({
   reproduceLv: 0.4
 });
 
-// terra.registerCreature({
-//   type: 'brute',
-//   color: [0, 255, 255],
-//   // maxEnergy: 50,
-//   initialEnergy: 10,
-//   size: 20,
-//   // reproduceLv: 0.65,
-//   move: false
-// });
-
 terra.registerCreature({
   type: 'bully',
-  color: [241, 106, 15],
+  color: [241, 156, 15],
   // character: 'X',
   initialEnergy: 50,
   // reproduceLv: 0.6,
@@ -44,16 +61,28 @@ terra.registerCreature({
   reproduceLv: 0.9
 });
 
-// bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 5]]);
-// bbTerrarium.animate();
+mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
 
+
+
+// //Play
+// ////
 // terra.registerCreature({
-//   type: 'play',
-//   color: [0, 255, 255],
-//   initialEnergy: 20,
-//   size: 40,
-//   sustainability: 4
+//   type: 'creature',
+//   color: [0, 120, 0],
+//   sustainability: 6,
+//   initialEnergy: 50,
 // })
 
-bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
-bbTerrarium.animate();
+// terra.registerCreature({
+//   color: [120, 0, 0],
+//   type: 'simplePlant',
+//   sustainability: 3,
+//   wait: function() {
+//     this.energy += 5;
+//   },
+//   initialEnergy: 50,
+//   reproduceLv: 5
+// })
+
+// mainCanvas.grid = mainCanvas.makeGridWithDistribution([['creature', 20], ['simplePlant', 80]]);
