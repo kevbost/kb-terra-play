@@ -4,7 +4,9 @@ var h = Math.min(document.documentElement.clientHeight, window.innerHeight || 0)
 console.log(w)
 console.log(h)
 
-var bbTerrarium = new terra.Terrarium((w / 10), ((h / 10)-1));
+var cellSize = 30
+
+var bbTerrarium = new terra.Terrarium((w / cellSize), ((h / cellSize)-1), 'play', cellSize);
 
 terra.registerCreature({
   type: 'plant',
@@ -14,7 +16,7 @@ terra.registerCreature({
   maxEnergy: 20,
   wait: function() {
     // photosynthesis :)
-    this.energy += 2;
+    this.energy += 4;
   },
   move: false,
   reproduceLv: 0.65
@@ -33,9 +35,9 @@ terra.registerCreature({
 terra.registerCreature({
   type: 'bully',
   color: [241, 196, 15],
-  initialEnergy: 20,
-  reproduceLv: 0.6,
-  size: 20,
+  initialEnergy: 50,
+  // reproduceLv: 0.6,
+  size: 100,
   sustainability: 0
 });
 
