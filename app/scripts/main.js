@@ -14,21 +14,29 @@ var btn = 1;
 var anywhere = $('html')
 var toggler = $('.toggler')
 
+// //ANIMATE ONE STEP ON EACH CLICK
+// ////////////////////////////////
+// anywhere.click(function(){
+//   mainCanvas.animate(1);
+//   toggler.addClass('hidden');
+// })
+// ////////////////////////////////
+
+//ANIMATE ON CLICK
+//////////////////
 anywhere.click(function(){
   if (btn === 1) {
     btn--
     mainCanvas.animate();
     toggler.addClass('hidden')
-    // toggler.html('stop');
   } else 
 
   if (btn === 0) {
     btn++
     mainCanvas.stop();
-    // toggler.html('click anywhere to start simulation');
-    // toggler.css({ 'top':'50%', 'right':'50%' });
   }
 });
+//////////////////
 
 
 
@@ -49,7 +57,6 @@ terra.registerCreature({
   move: false,
   reproduceLv: 0.4
 });
-
 terra.registerCreature({
   type: 'bully',
   color: [241, 156, 15],
@@ -60,29 +67,37 @@ terra.registerCreature({
   sustainability: 0,
   reproduceLv: 0.9
 });
-
 mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
-
+////////////////
 
 
 // //Play
 // ////
 // terra.registerCreature({
-//   type: 'creature',
-//   color: [0, 120, 0],
-//   sustainability: 6,
-//   initialEnergy: 50,
-// })
-
-// terra.registerCreature({
-//   color: [120, 0, 0],
 //   type: 'simplePlant',
+//   color: [120, 0, 0],
+//   size: 10,
+//   initialEnergy: 50,
+//   // maxEnergy: 100,
 //   sustainability: 3,
 //   wait: function() {
-//     this.energy += 5;
+//     this.energy += 6;
 //   },
-//   initialEnergy: 50,
 //   reproduceLv: 5
 // })
 
-// mainCanvas.grid = mainCanvas.makeGridWithDistribution([['creature', 20], ['simplePlant', 80]]);
+// terra.registerCreature({
+//   type: 'creatureA',
+//   color: [0, 120, 0],
+//   sustainability: 6,
+//   initialEnergy: 500,
+//   size: 20
+//   // maxEnergy: 500
+// })
+
+// terra.registerCreature({
+//   type: 'creatureB',
+//   color: [0, 0, 255]
+// })
+
+// mainCanvas.grid = mainCanvas.makeGridWithDistribution([['creatureA', 10], ['creatureB', 10], ['simplePlant', 80]]);
