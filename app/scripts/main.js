@@ -41,38 +41,121 @@ anywhere.click(function(){
 
 
 
+// //Large Bacteria
+// ////////////////
+// terra.registerCreature({
+//   type: 'plant',
+//   color: [0, 120, 0],
+//   size: 10,
+//   // character: '0',
+//   initialEnergy: 5,
+//   maxEnergy: 20,
+//   wait: function() {
+//     // photosynthesis :)
+//     this.energy += 5;
+//   },
+//   move: false,
+//   reproduceLv: 0.4
+// });
+// terra.registerCreature({
+//   type: 'bully',
+//   color: [241, 156, 15],
+//   // character: 'X',
+//   initialEnergy: 50,
+//   // reproduceLv: 0.6,
+//   size: 100,
+//   sustainability: 0,
+//   reproduceLv: 0.9
+// });
+// mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
+// ////////////////
+
+
+
+// //Large Bacteria
+// ////////////////
+// terra.registerCreature({
+//   type: 'plant',
+//   color: [0, 120, 0],
+//   size: 10,
+//   initialEnergy: 5,
+//   maxEnergy: 20,
+//   move: false,
+//   reproduceLv: 0.4,
+//   wait: function() { this.energy += 1; }
+// });
+
+// terra.registerCreature({
+//   type: 'bully',
+//   color: [241, 156, 15],
+//   size: 100,
+//   initialEnergy: 50,
+//   maxEnergy: 1100,
+//   sustainability: 2,
+//   reproduceLv: 0.9,
+//   wait: function() { this.energy * 2; }
+// });
+
+
+// mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
+// ////////////////
+
+
+
 //Large Bacteria
 ////////////////
 terra.registerCreature({
   type: 'plant',
   color: [0, 120, 0],
   size: 10,
-  // character: '0',
   initialEnergy: 5,
   maxEnergy: 20,
-  wait: function() {
-    // photosynthesis :)
-    this.energy += 5;
-  },
   move: false,
-  reproduceLv: 0.4
+  reproduceLv: 0.4,
+  wait: function() {
+    this.energy += 1;
+    // $('.insert-green').text('Green E = ' + Math.round(this.energy));
+  }
 });
+
+terra.registerCreature({
+  type: 'fly',
+  color: [0, 115, 156],
+  size: 50,
+  initialEnergy: 50,
+  maxEnergy: 1000,
+  sustainability: 1,
+  wait: function() {
+    // this.energy * 2;
+    // $('.insert-blue').text(' Blue E = ' + Math.round(this.energy));
+  }
+});
+
 terra.registerCreature({
   type: 'bully',
   color: [241, 156, 15],
-  // character: 'X',
+  size: 50,
   initialEnergy: 50,
-  // reproduceLv: 0.6,
-  size: 100,
-  sustainability: 0,
-  reproduceLv: 0.9
+  maxEnergy: 500,
+  sustainability: 1,
+  // reproduceLv: 0.9,
+  wait: function() {
+    // this.energy * 2;
+    // $('.insert-yellow').text(' Yellow E = ' + Math.round(this.energy));
+  }
 });
-mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 5]]);
+
+
+mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 98], ['bully', 1], ['fly', 1]]);
 ////////////////
 
 
-// //Play
-// ////
+
+
+
+
+// //FLIES
+// ///////
 // terra.registerCreature({
 //   type: 'simplePlant',
 //   color: [120, 0, 0],
@@ -101,3 +184,4 @@ mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 50], ['bully', 
 // })
 
 // mainCanvas.grid = mainCanvas.makeGridWithDistribution([['creatureA', 10], ['creatureB', 10], ['simplePlant', 80]]);
+// // ////////////////
