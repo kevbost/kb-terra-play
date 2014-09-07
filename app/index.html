@@ -44,13 +44,20 @@
 
 	<div id="insidebox">
 		<div id="insert">
-			<div class="insert-green inlineBlock"></div>
+			<div class="insert-green inlineBlock">
+				/* <a href="http://kevbost.github.io/kb-portfolio" title="Kevin Bost - Front End Web Developer">KevinBost.com</a> */
+			</div>
 			<div class="insert-blue inlineBlock"></div>
-			<div class="insert-yellow inlineBlock"></div>
+			<div class="insert-yellow inlineBlock pull-right">
+				<span>/* built with </span><a href="http://rileyjshaw.com/terra/" title="A JavaScript library for simple biological simulations and cellular automata.">TerraJS</a> by <a href="http://rileyjshaw.com/" title="rileyjshaw">rileyjshaw</a> */
+			</div>
 		</div>
 		<div class="toggler">
 			<h1>CLICK ANYWHERE TO<br>BEGIN THE ANIMATION</h1>
 			<h2>CLICK AGAIN TO STOP</h2>
+		</div>
+		<div class="stopwatch">
+			<h1><div class="timer">00:00</div></h1>
 		</div>
 	</div>
 
@@ -62,6 +69,7 @@
 	<script src="bower_components/terra/dist/terra.min.js"></script>
 	<script src="bower_components/underscore/underscore.js"></script>
 	<script src="bower_components/backbone/backbone.js"></script>
+	<script src="bower_components/moment/moment.js"></script>
 	<!-- endbower -->
 	<!-- endbuild -->
 
@@ -92,6 +100,7 @@
 
 		<!-- build:js({app,.tmp}) scripts/main.js -->
 		<script src="scripts/main.js"></script>
+		<script src="scripts/timer.js"></script>
 		<!-- endbuild -->
 </body>
 </html>

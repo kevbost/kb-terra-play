@@ -8,7 +8,7 @@ var cellSize = 20;
 var btnHeight = ($('.toggler').outerHeight()) / 10;
 console.log(btnHeight)
 
-var mainCanvas = new terra.Terrarium((w / cellSize), ((h / cellSize) - 0.5), 'playClass', cellSize);
+var mainCanvas = new terra.Terrarium((w / cellSize), ((h / cellSize) - 1.3), 'playClass', cellSize);
 
 var btn = 1;
 var anywhere = $('html')
@@ -28,17 +28,18 @@ anywhere.click(function(){
   if (btn === 1) {
     btn--
     mainCanvas.animate();
-    toggler.addClass('hidden')
+    displayTime();
+    startWatch();
+    toggler.addClass('hidden');
   } else 
 
   if (btn === 0) {
     btn++
     mainCanvas.stop();
+    stopTime();
   }
 });
 //////////////////
-
-
 
 
 // //Large Bacteria
@@ -102,7 +103,7 @@ anywhere.click(function(){
 
 
 
-//Large Bacteria
+//Large Bacteria Continued
 ////////////////
 terra.registerCreature({
   type: 'plant',
@@ -111,7 +112,7 @@ terra.registerCreature({
   initialEnergy: 5,
   maxEnergy: 20,
   move: false,
-  reproduceLv: 0.4,
+  reproduceLv: 0.3,
   wait: function() {
     this.energy += 1;
     // $('.insert-green').text('Green E = ' + Math.round(this.energy));
@@ -120,7 +121,8 @@ terra.registerCreature({
 
 terra.registerCreature({
   type: 'fly',
-  color: [0, 115, 156],
+  color: [255, 255, 255],
+  // character: 'O',
   size: 50,
   initialEnergy: 50,
   maxEnergy: 1000,
@@ -134,6 +136,7 @@ terra.registerCreature({
 terra.registerCreature({
   type: 'bully',
   color: [241, 156, 15],
+  // character: 'o',
   size: 50,
   initialEnergy: 50,
   maxEnergy: 500,
@@ -148,7 +151,6 @@ terra.registerCreature({
 
 mainCanvas.grid = mainCanvas.makeGridWithDistribution([['plant', 98], ['bully', 1], ['fly', 1]]);
 ////////////////
-
 
 
 
